@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import Layout from './components/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
+import Checkout from './containers/Checkout/Checkout';
+import { Route, Switch } from 'react-router-dom';
+import MyOrders from './containers/MyOrders/MyOrders';
 
 class App extends Component {
   render() {
     return (
       <div >
         <Layout>
-          {/* This is where you would include the page you want to display wrapped in layout */}
-          <BurgerBuilder />
+          <Switch>
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/myorders" component={MyOrders} />
+            <Route path="/" exact component={BurgerBuilder} />
+          </Switch>
         </Layout>
       </div>
     );
